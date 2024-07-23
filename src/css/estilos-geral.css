@@ -1,0 +1,74 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    width: 100%;
+}
+
+.navbar {
+    background-color: #ffffff !important; /* Cor de fundo da barra de navegação */
+    height: 70px; /* Altura fixa para a barra de navegação */
+
+}
+
+.navbar-brand {
+    color: #ffffff; /* Cor do texto do logo */
+    font-weight: bold;
+}
+.navbar-brand img {
+    height: 550px; /* Aumenta a altura da logo */
+    width: auto;
+    padding-right: 150px;
+}
+
+.navbar-nav .nav-link {
+    color: #000000 !important; /* Cor dos links na barra de navegação */
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    color: #007396 !important; /* Cor mais escura ao passar o mouse */
+}
+
+
+
+.jumbotron {
+    background-color: #007bff; /* Cor de fundo do hero section */
+    color: #ffffff; /* Cor do texto do hero section */
+    padding: 3rem;
+    margin-bottom: 0;
+}
+
+.jumbotron .btn-primary {
+    background-color: #ffffff;
+    color: #007bff;
+    border-color: #007bff;
+}
+
+.jumbotron .btn-primary:hover {
+    background-color: #007bff;
+    color: #ffffff;
+    border-color: #007bff;
+}
+
+#features {
+    background-color: #ffffff; /* Cor de fundo da seção de recursos */
+    padding: 4rem 0;
+}
+
+#products {
+    background-color: #f8f9fa; /* Cor de fundo da seção de produtos */
+    padding: 4rem 0;
+}
+
+#contact {
+    background-color: #ffffff; /* Cor de fundo da seção de contato */
+    padding: 4rem 0;
+}
+
+footer {
+    background-color: #343a40; /* Cor de fundo do rodapé */
+    color: #ffffff;
+    padding: 1rem 0;
+}
+

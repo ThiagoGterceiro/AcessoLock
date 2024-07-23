@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Trancas - Acesso Lock</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="src/css/estilos-geral.css">
+    <style>
+        .form-container {
+            width: 100%;
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar .nav-item {
+            margin-bottom: 1rem;
+        }
+
+        .sidebar .nav-item .nav-link {
+            display: flex;
+            align-items: center;
+        }
+
+        .sidebar .nav-item .nav-link i {
+            margin-right: 0.5rem;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 1rem 0;
+        }
+
+        .btn-custom {
+            background-color: #28a745; /* Cor personalizada */
+            color: #ffffff;
+        }
+
+        .btn-custom:hover {
+            background-color: #218838;
+        }
+
+        .btn-actions-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .btn-actions-group button {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-sm navbar-light" style="background-color: #F1f1f1;">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="src/img/logo1.svg" alt="Logo" height="50" style="background-color: transparent;">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="serviços.html">Serviços</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="cadastro.html">Conta</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main content -->
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3">
+                <div class="sidebar">
+                    <h4>Opções</h4>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="trancas-tab" href="#trancas" role="tab" aria-controls="trancas" aria-selected="true">
+                                <i class="fas fa-lock"></i> Trancas Cadastradas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="cadastrar-tab" href="#cadastrar" role="tab" aria-controls="cadastrar" aria-selected="false">
+                                <i class="fas fa-plus"></i> Cadastrar Nova Tranca
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="col-md-9">
+                <div class="form-container">
+                    <div class="tab-content">
+                        <!-- Aba Trancas Cadastradas -->
+                        <div class="tab-pane fade show active" id="trancas" role="tabpanel" aria-labelledby="trancas-tab">
+                            <h3 class="mb-4">Trancas Cadastradas</h3>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Nome</th>
+                                        <th scope="col">Descrição</th>
+                                        <th scope="col">Localização</th>
+                                        <th scope="col">Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="trancasList">
+                                    <!-- As trancas cadastradas serão inseridas aqui dinamicamente -->
+                                    <tr>
+                                        <td>Tranca 1</td>
+                                        <td>Descrição da Tranca 1</td>
+                                        <td>Localização 1</td>
+                                        <td>
+                                            <div class="btn-actions-group">
+                                                <button class="btn btn-primary">Abrir</button>
+                                                <button class="btn btn-secondary">Trancar</button>
+                                                <button class="btn btn-warning">Alterar Configurações</button>
+                                                <button class="btn btn-info">Liberar Permissões</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- Adicione mais linhas conforme necessário -->
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Aba Cadastrar Nova Tranca -->
+                        <div class="tab-pane fade" id="cadastrar" role="tabpanel" aria-labelledby="cadastrar-tab">
+                            <h3 class="mb-4">Cadastrar Nova Tranca</h3>
+                            <form>
+                                <div class="form-group">
+                                    <label for="trancaNome">Nome da Tranca</label>
+                                    <input type="text" class="form-control" id="trancaNome" placeholder="Nome da tranca" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="trancaDescricao">Descrição</label>
+                                    <textarea class="form-control" id="trancaDescricao" rows="3" placeholder="Descrição da tranca" required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="trancaLocalizacao">Localização</label>
+                                    <input type="text" class="form-control" id="trancaLocalizacao" placeholder="Localização da tranca" required>
+                                </div>
+                                <button type="submit" class="btn btn-custom">Cadastrar Tranca</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS e dependências -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-UiUJ1a1+WVg4QGFcJvMBc2OCTffwJp6vgvnKzjiW1ELyXYz4kA/rY3MTaNCMBhVC" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Acesso Lock</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="src/css/estilos-geral.css">
+    <style>
+        .background-blur {
+            position: relative;
+            background-image: url('src/img/imagem-ladingpage-1.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh; /* Preenche a altura total da viewport */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .background-blur::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: inherit; /* Herda a imagem de fundo */
+            filter: blur(5px); /* Aplica o desfoque ao fundo */
+            z-index: 0; /* Coloca o desfoque atrás do conteúdo */
+        }
+
+        .form-container-wrapper {
+            position: relative;
+            z-index: 1; /* Garante que o formulário esteja acima do fundo borrado */
+        }
+
+        .form-container {
+            width: 500px;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: rgba(255, 255, 255, 0.9); /* Fundo branco com leve transparência */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #343a40; /* Cor de fundo do rodapé */
+            color: #ffffff;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Estilos específicos para os botões */
+        .btn-reveal {
+            background-color: #17a2b8; /* Cor personalizada para o botão Revelar */
+            color: #ffffff;
+        }
+
+        .btn-reveal:hover {
+            background-color: #138496; /* Cor ao passar o mouse */
+            color: #ffffff;
+        }
+
+        .btn-toggle {
+            background-color: #28a745; /* Cor personalizada para o botão Alternar */
+            color: #ffffff;
+        }
+
+        .btn-toggle:hover {
+            background-color: #218838; /* Cor ao passar o mouse */
+            color: #ffffff;
+        }
+    </style>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+    <script src="../lib/js_nc_functions.js"></script>
+    <script src="../lib/js_login_control.js"></script>
+    <script>
+        function toggleForm(formType) {
+            if (formType === 'login') {
+                document.getElementById('login_form').classList.remove('hidden');
+                document.getElementById('signup_form').classList.add('hidden');
+                document.getElementById('toggleButton').innerText = 'Ir para Cadastro';
+            } else {
+                document.getElementById('login_form').classList.add('hidden');
+                document.getElementById('signup_form').classList.remove('hidden');
+                document.getElementById('toggleButton').innerText = 'Ir para Login';
+            }
+        }
+
+        // Inicializa com a página de cadastro visível
+        window.onload = function() {
+            toggleForm('signup');
+        };
+    </script>
+</head>
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-sm navbar-light" style="background-color: #F1f1f1;">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="src/img/logo1.svg" alt="Logo" height="50" style="background-color: transparent;">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="serviços.html">Serviços</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="cadastro.html">Conta</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+<body>
+    <!-- Seção Hero com fundo borrado -->
+    <section class="background-blur">
+        <div class="form-container-wrapper">
+            <div class="form-container">
+                <button id="toggleButton" class="btn btn-toggle btn-block mb-3" onclick="toggleForm('login')">Ir para Login</button>
+                <!-- Seção de Cadastro -->
+                <div id="signup_form">
+                    <h2 class="text-center">Cadastro</h2>
+                    <form>
+                        <div class="form-group">
+                            <label for="nome">Nome Completo</label>
+                            <input type="text" class="form-control" id="nome" placeholder="Seu nome completo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Seu email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="senha">Senha</label>
+                            <input type="password" class="form-control" id="senha" placeholder="Sua senha" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirma-senha">Confirmar Senha</label>
+                            <input type="password" class="form-control" id="confirma-senha" placeholder="Confirme sua senha" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Cadastrar</button>
+                    </form>
+                </div>
+                <!-- Seção de Login -->
+                <div id="login_form" class="hidden">
+                    <h2 class="text-center">Login</h2>
+                    <div class="form-group">
+                        <label for="email_in">Email</label>
+                        <input type="email" name="email_in" id="email_in" class="form-control" placeholder="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="senha_in">Senha</label>
+                        <input type="password" name="senha_in" id="senha_in" class="form-control" placeholder="senha">
+                        <button type="button" onclick="revelarSenha('senha_in')" id="reveal" class="btn btn-reveal mt-2">Revelar</button>
+                    </div>
+                    <button type="submit" value="entrar" class="btn btn-primary btn-block" onclick="login()">Entrar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Bootstrap JS e dependências -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-UiUJ1a1+WVg4QGFcJvMBc2OCTffwJp6vgvnKzjiW1ELyXYz4kA/rY3MTaNCMBhVC" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOn

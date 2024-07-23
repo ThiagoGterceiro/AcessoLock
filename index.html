@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso Lock - Proteja seu Estabelecimento</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="src/css/estilos-geral.css">
+    <style>
+        .capa-apresentacao {
+            background-color: #007bff; /* Cor de fundo do hero section */
+            color: #ffffff; /* Cor do texto do hero section */
+            text-shadow: #9999991c;
+            padding: 3rem;
+            margin-bottom: 0;
+            height: 70vh; /* Define a altura como 70% da altura da viewport */
+            display: flex; /* Para centralizar conteúdo verticalmente */
+            justify-content: center; /* Para centralizar conteúdo horizontalmente */
+            align-items: center; /* Para centralizar conteúdo verticalmente */
+        }
+
+        .capa-apresentacao .card-title, .capa-apresentacao .card-text {
+            font-weight: bold;
+            text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.788);
+        }
+
+        .card-img-top {
+            max-height: 230px; /* Define a altura máxima da imagem */
+            object-fit: cover; /* Garante que a imagem cubra a área sem distorção */
+        }
+
+        .card-body {
+            text-align: center; /* Centraliza o texto dentro do card */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-sm navbar-light" style="background-color: #F1f1f1;">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="src/img/logo1.svg" alt="Logo" height="50" style="background-color: transparent;">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="serviços.html">Serviços</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="cadastro.html">Conta</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Seção Hero -->
+    <section class="capa-apresentacao text-center" style="background-image: url('src/img/imagem-ladingpage-1.jpg'); background-size: cover; background-position: center;">
+        <div class="container">
+            <h1 class="display-4 card-text">Proteja seu Estabelecimento com Trancas Acesso Lock</h1>
+            <p class="lead card-text">Trancas inteligentes inovadoras para residências e empresas.</p>
+            <a href="#contact" class="btn btn-primary btn-lg ">Começar Agora</a>
+        </div>
+    </section>
+
+    <!-- Seção de Recursos -->
+    <section id="features" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <img src="src/img/Acesso-remoto-ladingpage.jpg" class="card-img-top" alt="Controle Remoto">
+                        <div class="card-body">
+                            <h4 class="card-title">Controle Remoto de Acesso</h4>
+                            <p>Gerencie o acesso à sua propriedade de qualquer lugar.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <img src="src/img/segurança-ladingpage.jpg" class="card-img-top" alt="Segurança Avançada">
+                        <div class="card-body">
+                            <h4 class="card-title">Segurança Avançada</h4>
+                            <p>Criptografia avançada e monitoramento.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <img src="src/img/permissaopersonalizada-ladingpage.jpg" class="card-img-top" alt="Permissões Personalizáveis">
+                        <div class="card-body">
+                            <h4 class="card-title">Permissões Personalizáveis</h4>
+                            <p>Defina níveis de acesso para funcionários ou membros da família.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Produtos -->
+    <section id="products" class="bg-light py-5">
+        <div class="container text-center">
+            <h2>Nossos Produtos</h2>
+            <p class="lead">Descubra nossa linha de trancas IoT projetadas para todas as necessidades.</p>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="src/img/sistema de tranca casa.jpg" class="card-img-top" alt="Tranca Inteligente para Casa">
+                        <div class="card-body">
+                            <h4 class="card-title">Tranca Inteligente para Casa</h4>
+                            <p>Perfeita para uso residencial com integração perfeita.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="src/img/sistema de trancas empresarial.jpg" class="card-img-top" alt="Sistemas de Trancas Empresariais">
+                        <div class="card-body">
+                            <h4 class="card-title">Sistemas de Trancas Empresariais</h4>
+                            <p>Soluções escaláveis para empresas de todos os tamanhos.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="src/img/tranca-personalizada.jpg" class="card-img-top" alt="Instalações Personalizadas">
+                        <div class="card-body">
+                            <h4 class="card-title">Instalações Personalizadas</h4>
+                            <p>Sistemas personalizados para atender requisitos específicos de instalações.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p>Direitos Autorais &copy; 2024 Acesso Lock. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Bootstrap JS e dependências -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-UiUJ1a1+WVg4QGFcJvMBc2OCTffwJp6vgvnKzjiW1ELyXYz4kA/rY3MTaNCMBhVC" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"></script>
+</body>
+</html>
